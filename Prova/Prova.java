@@ -23,9 +23,11 @@ public class Prova {
         {
             public void run()
             {
-                for (int i = 0; i < 15; i++) 
-                {
-                    c.increment();
+                synchronized(this){
+                    for (int i = 0; i < 100000; i++) 
+                    {
+                        c.increment();
+                    }
                 }
             }
         });
@@ -34,9 +36,11 @@ public class Prova {
         {
             public void run()
             {
-                for (int i = 0; i < 10; i++) 
-                {
-                    c.decrement();
+                synchronized(this){
+                    for (int i = 0; i < 100000; i++) 
+                    {
+                        c.decrement();
+                    }
                 }
             }
         });
